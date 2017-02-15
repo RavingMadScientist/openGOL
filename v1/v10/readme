@@ -1,0 +1,14 @@
+so far, the useful scripts within this directory are:
+
+
+
+
+rotateCube3.c merely adds the top and bottom to the rotateCube2 objects.
+
+rotateCube2.c is very functional- this is the first working incarnation of a 3-axis 3D rotation capability for user-defined navigation
+It displays two cubes with the tops and bottoms cut off , intersected by a square.
+
+rotateCube.c is nonfunctional
+
+greatDummy.c provides a working openGL display context that seems idealized for my purposes, ie rendering multiple instances of numerous definable objects
+

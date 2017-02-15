@@ -1,0 +1,18 @@
+
+A summary of the version history of the OpenGameOfLife:
+
+
+v0.4 integrates the text rendering of v0.3 with the logic / graphics of v0.1
+
+v0.3 successfully implements the functionality desired from v0.2 using the impressively hardheaded technique of directly encoding a subset of ASCII characters as raw textures, which are applied to transparent rectangles transformed against the current Window specs.
+It is implemented in the gsquares91 source/executable, and the font is found in textLib.c
+
+
+v0.2 was a failed attempt to add a fixed-position information display in the top-left of the view window. It relied upon a legacy funct
+ion family (glutStroke/BitmapCharacter) which works in immediate mode, but is rather unfortunately silently ignored in the Modern Core Profile 3.3 sp
+ec. Thus, it is not compatible with shaders.
+
+
+version0.1 was the first incarnation of GOL capable of reading input files, and outputting green squares on a 2D grid of user-specified size.
+ It evolves every time the 'f' key is pressed, and then user can navigate the camera around the grid using the arrow keys.
+

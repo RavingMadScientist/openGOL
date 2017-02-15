@@ -1,0 +1,9 @@
+
+
+gsquares8 automates the texture-populating routine, providing now 4 characters which can be written
+
+in gsquares7, we will introduce multiple shaders, so that the squares display text and the triangles do not.
+
+at present, gsquares6 is the most advanced incarnation of our font explorations. 
+the collection of squares can be set to all print the letter 'g', or the letter 'h'. 
+
