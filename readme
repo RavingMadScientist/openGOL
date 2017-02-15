@@ -1,9 +1,56 @@
+OpenGOL: introductory documentation.
+
+There are at present two versions of interest: v0.5 is the most up-to-date version of the purely 2D implementation, and
+v1.3 is the latest stable version of the 3D logic.
+
+Dependencies:
+The primary requirement is a graphics card which can implement core profile openGL (ie v3.0+) . On the software side, the only dependences outside of the ANSI C Standard Library are GL/GLU, freeglut, and GLEW, each of which should be readily obtainable on any modern UNIX-based OS with an internet connection.
+
+Compile with
+ gcc v13.c funcs1d.c funcs2d.c funcs3d.c textLib.c -lm -lGLEW -lglut -lGLU -lGL -o whateveryoulike
+
+Runtime Parameters:
+
+If you want to load your own input file (comma or semicolon-delimited 1's and 0's), specify -i "myFileName.txt"  after ./whateveryoulike
+
+grid dimensions are given by up to three arguments after the -g flag, which should (as of v1.3) be the last argument in the command. Default is 11x11x11, and a single int argument returns a cube with the requested number of vertices along each axis.
+
+-a indicates automatic mode, and should be followed by an int to specify the number of iterations to automatically trigger with each press of the "evolve" key. -a -1 triggers an infinite loop upon the first execution of the evolve key.   
+
+-p instructs the game to operate in periodic mode (as is the case in Conway's original implementation). Organisms on the periphery of the grid are susceptible to the influence of the peripheral organisms at the opposite face (edge in 2D). Effectively, the grid is periodized by III-function convolution, though rendering this graphically has proved a technical challenge. The default mode , contrastingly, enforces strict boundary conditions.
+
+Gameplay:
+So simple, a child could run it!
+
+Translation in the xy plane is achieved with the arrow keys, z with '0' and '.' (As per Blender, key configuration is designed for one-handed operation on a NumPad). 
+'+' and '-' are zoom / scale adjustment
+Rotation about the z-axis is accomplished with 7 and 9,
+Rotation about the y-axis is accomplished with 4 and 6,
+Rotation about the x-axis is accomplished with 2 and 8.
+
+Any rotation can be applied instead to the camera's orientation relative to its local point of reference by using the <alt> modifier with any of the rotation hotkeys.
+
+'h' returns the user to the original view.
+
+'f' evolves the game a fixed number of generations, as determined by the autoMode settings specified at runtime.
+
+As the evolution function of the configuration space is emphatically neither injective nor surjective, evolution is necessarily and intrinsically irreversible.
+
+
+
+
+
+Much more detailed information may be obtained by a perusal of the source code, along with its comments.
 
 A summary of the version history of the OpenGameOfLife:
 
+v1.3 is the latest stable version, and the first to implement fully three-dimensional logic. All functionality of earlier versions is supported. 
 
+v1.2 is a simple update, in which the organisms are now drawn as cubes.
 
-v1.0 moves the Game into the three dimensional world.
+v1.1 combines the vertex shaders and update methods of v1.0 with the game logic of v0.5, expanding the grid of v0.5 to 3D. The game itself is still implemented in 2D.
+
+v1.0 moves into the three dimensional world. It provides full navigation functionality, along with an image of two cubes and a square.
 
 v0.5 enables autoMode, in which the calculations and resulting display proceed automatically (default refresh rate 4Hz), for a user-specifiable number of iterations(-a n), or even an infinite loop (-a -1).
 
